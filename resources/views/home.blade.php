@@ -89,6 +89,22 @@
                             </td>
                         </tr>
                         @endforeach
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Items</th>
+                                    <th scope="col">Sub total</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row">{{Cart::getTotalQuantity()}}</td>
+                                    <td scope="row">{{Cart::getSubTotal()}}</td>
+                                    <td scope="row">{{Cart::getTotal()}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </tbody>
                 </table>
 
