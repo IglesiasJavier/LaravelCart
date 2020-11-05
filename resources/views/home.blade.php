@@ -17,7 +17,8 @@
     <div class="container mt-5">
         <div class="row mt-5 mb-5">
             <div class="col-6 ">
-                <form>
+                <form method="POST" action="{{route('cart.store')}}">
+                    @csrf
                     <div class="form-group">
                         <label for="id">ID</label>
                         <input type="text" name="id" class="form-control" id="id">
