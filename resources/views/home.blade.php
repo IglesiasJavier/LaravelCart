@@ -55,6 +55,41 @@
                     <button type="submit" class="btn btn-primary">Agregar al carrito</button>
                 </form>
             </div>
+            <div class="col-6">
+                @if (!Cart::isEmpty())
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th sc ope="col">Accion</th>
+                            <th sc ope="col">#ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Atributos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Cart::getContent() as $item)
+                        <tr>
+                            <th scope="row">
+                                <button>Eliminar</button>
+                            </th>
+                            <th scope="row">{{$item->id}}</th>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->price}}</td>
+                            <td>{{$item->quantity}}</td>
+                            <td>
+                                @foreach ($item->attributes as $key => $attribute)
+                                {{$key}}: {{$attribute}}.
+                                @endforeach
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                @endif
+            </div>
         </div>
     </div>
 
