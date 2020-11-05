@@ -72,7 +72,11 @@
                         @foreach (Cart::getContent() as $item)
                         <tr>
                             <th scope="row">
-                                <button>Eliminar</button>
+                                <form method="POST" action="{{route('cart.destroy',$item->id)}}">
+                                @method('DELETE')
+                                @csrf
+                                    <button type="submit">Eliminar</button>
+                                </form>
                             </th>
                             <th scope="row">{{$item->id}}</th>
                             <td>{{$item->name}}</td>

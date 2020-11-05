@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::name('cart.')->group(function(){
-    Route::resource('/', 'CartController');
-});
+
+    Route::resource('/cart', 'CartController');
+    Route::get('/', (function(){
+        return view('home');
+    }));
+
